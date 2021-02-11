@@ -35,7 +35,7 @@ func init() {
 	blt.Clear()
 
 	// Create player
-	player = &entity.GameEntity{X: 95, Y: 1, Layer: 1, Char: "@", Color: "white"}
+	player = &entity.GameEntity{X: 1, Y: 1, Layer: 1, Char: "@", Color: "white"}
 
 	// Create NPC's
 	npc := &entity.GameEntity{X: 10, Y: 10, Layer: 0, Char: "N", Color: "red"}
@@ -46,6 +46,10 @@ func init() {
 	// Create GameMap
 	gameMap = &gamemap.Map{Width: MAP_WIDTH, Height: MAP_HEIGHT}
 	gameMap.InitializeMap()
+
+	playerX, playerY := gameMap.GenerateCavern()
+	player.X = playerX
+	player.Y = playerY
 }
 
 func main() {
